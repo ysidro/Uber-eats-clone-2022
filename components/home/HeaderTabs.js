@@ -1,9 +1,9 @@
-import React,{ useState } from 'react'
+import React from 'react'
 import { View, Text,StyleSheet,TouchableOpacity } from 'react-native'
 
-export default function HeaderTabs() {
+export default function HeaderTabs({activeTab, setActiveTab}) {
 
-  const [activeTab,setActiveTab] = useState("Delivery")
+ 
 
   return (
     <View style={styles.tabsButtonStyle}>

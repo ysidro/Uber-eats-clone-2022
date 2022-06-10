@@ -1,14 +1,20 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete'
+import Constants from 'expo-constants';
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 
 
-export default function Search() {
+export default function Search({setCity}) {
   return (
     <View style={{marginTop:15, flexDirection:"row"}}>
         <GooglePlacesAutocomplete 
+            query={{key: `${Constants.manifest.googlePlacesApiKey}`}}
+            onPress={ (data,details = null) =>{
+                const city = data.description.split(",")[0]
+                setCity(city)
+            }}
             placeholder="Search"
             styles={{
                 textInput:{
