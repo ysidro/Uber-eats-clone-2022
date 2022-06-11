@@ -1,34 +1,34 @@
 import React from 'react'
-import { View, Text,Image } from 'react-native'
+import { View, Text, Image } from 'react-native'
 
-export default function About() {
+export default function About({route}) {
 
-    const image = "https://s3-media4.fl.yelpcdn.com/bphoto/LTtoZ25m8FX1UV37asnTCw/o.jpg"
-    const title = "Kokkari Estiatorio"
-    const description = "Thai • Comfort Food • $$ • • 4 (2913+)"
+    const {params} = route
+    const formattedCategories = params.categories.map((cat)=> cat.title).join(" • ")
+    const description = `${formattedCategories} ${params.price ? " • " + params.price : ""} 💳 • ${params.rating} ⭐ • (${params.review_count}+)`
 
-  return (
-    <View>
-        <RestaurantImage image={image}  />
-        <RestaurantTitle title={title} />
-        <RestaurantDescription description={description} />
-    </View>
-  )
+    return (
+        <View style={{ backgroundColor: "#293462", paddingBottom: 10 }}>
+            <RestaurantImage image={params.image_url} />
+            <RestaurantName title={params.name} />
+            <RestaurantDescription description={description} />
+        </View>
+    )
 }
 
-const RestaurantImage = ({image}) =>(
-    <Image source={{ uri: image }} style={{width:"100%", height:180}} />
+const RestaurantImage = ({ image }) => (
+    <Image source={{ uri: image }} style={{ width: "100%", height: 180 }} />
 )
 
-const RestaurantTitle = ({title}) =>(
+const RestaurantName = ({ title }) => (
     <View>
-    <Text style={{fontSize:18 , fontWeight: "600" ,padding:10}}>{title}</Text>
+        <Text style={{ fontSize: 18, color: "white", fontWeight: "700", padding: 10 }}>{title}</Text>
     </View>
 )
 
-const RestaurantDescription = ({description}) =>(
+const RestaurantDescription = ({ description }) => (
     <View>
-    <Text style={{fontSize:14 ,paddingHorizontal:10}}>{description}</Text>
+        <Text style={{ fontSize: 13.5, color: "white", paddingHorizontal: 10 }}>{description}</Text>
     </View>
 )
 

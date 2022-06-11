@@ -1,17 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import Home from './screens/Home';
-import Restaurant from './screens/Restaurant';
+
+import {  View } from 'react-native';
+import RootNavigation from './navigations';
+
 
 export default function App() {
   return (
-    <View styles={{ flex:1, 
-                    justifyContent:"center",
-                    alignItems:"center",
-                    backgroundColor:"#eee"
-                    }}>
-      <Restaurant/>
-    </View>
+    <RootNavigation/>
   );
 }
 

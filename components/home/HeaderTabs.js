@@ -42,13 +42,13 @@ const styles = StyleSheet.create({
     alignSelf:"center",
   },
   btnBackgroundBlack:{
-    backgroundColor:"black",
+    backgroundColor:"#293462",
     paddingVertical:6,
     paddingHorizontal:16,
     borderRadius:30,
   },
   btnLableBlack:{
-    color:"black",
+    color:"#293462",
     fontWeight:"700",
     fontSize:14,
   },

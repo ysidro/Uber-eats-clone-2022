@@ -2,19 +2,28 @@ import React from 'react'
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
-export default function RestaurantItems(props) {
-
+export default function RestaurantItems({navigation ,...props}) {
     return (
-        <TouchableOpacity activeOpacity={1} style={{ marginTop: 15 }}>
+        <>
             {props.restaurantData.map((restaurant, index) => (
-                <View key={index} style={Styles.container}>
+                <TouchableOpacity key={index} activeOpacity={1} style={{ marginTop: 15 }}
+                onPress={() => navigation.navigate("Restaurant",{
+                    image_url:restaurant.image_url,
+                    name:restaurant.name,
+                    rating:restaurant.rating,
+                    review_count:restaurant.review_count,
+                    price:restaurant.price,
+                    categories:restaurant.categories})}
+            >
+                <View  style={Styles.container}>
                     <RestaurantImage image_url={restaurant.image_url} />
                     <RestaurantInfo name={restaurant.name}
                         rating={restaurant.rating}
                     />
                 </View>
+                </TouchableOpacity>
             ))}
-        </TouchableOpacity>
+            </>
     )
 }
 
@@ -31,26 +40,26 @@ const RestaurantImage = (props) => (
 )
 
 const RestaurantInfo = (props) => (
-    <View style={Styles.RestaurantItem}>
+    <View style={Styles.restaurantItem}>
         <View>
-            <Text style={{ fontSize: 15, fontWeight: "bold" }}>{props.name}</Text>
-            <Text style={{ color: "#737171" }}> 30-45 • min </Text>
+            <Text style={{ fontSize: 15,color: '#293462', fontWeight: "bold" }}>{props.name}</Text>
+            <Text style={{ color: "#293462" }}> 30-45 • min </Text>
         </View>
-        <View style={Styles.RestaurantItemDad}>
-            <Text>{props.rating}</Text>
+        <View style={Styles.restaurantItemDad}>
+            <Text style={{color:"#fff"}}>{props.rating}</Text>
         </View>
     </View>
 )
 
 const Styles = StyleSheet.create({
-    RestaurantItem: {
+    restaurantItem: {
         paddingTop: 15,
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
     },
-    RestaurantItemDad: {
-        backgroundColor: "#eee",
+    restaurantItemDad: {
+        backgroundColor: '#293462',
         height: 30,
         width: 30,
         justifyContent: "center",

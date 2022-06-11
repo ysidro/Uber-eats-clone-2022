@@ -9,10 +9,12 @@ import Search from '../components/home/Search'
 import BottomTabs from '../components/home/BottomTabs';
 import RestaurantItems from '../components/home/RestaurantItems'
 
-export default function Home() {
+export default function Home({navigation}) {
+  
   const [restaurantData, setRestaurantData] = useState([]);
   const [city, setCity] = useState("San Francisco");
-  const [activeTab, setActiveTab] = useState("Delivery");
+  const [activeTab, setActiveTab] = useState(null);
+
   const screenHeight = Dimensions.get('window').height;
 
   const getRestaurantFromYelp = () => {
@@ -26,7 +28,15 @@ export default function Home() {
 
     return fetch(yelpUrl, apiOptions)
       .then(res => res.json())
-      .then((data) => setRestaurantData(data.businesses.filter(business => business.transactions.includes(activeTab.toLowerCase()))))
+      .catch((err) => console.error(err))
+      .then((data) => {
+     
+    //      setRestaurantData(data.businesses.filter(business => business.transactions.includes(activeTab.toLowerCase())))
+    
+          setRestaurantData(data.businesses)
+        
+       
+      })
 
   }
 
@@ -39,7 +49,7 @@ export default function Home() {
     <SafeAreaView style={{ backgroundColor: "#eee", }}>
 
       <View style={{ backgroundColor: "#fff", padding: 15 }}>
-        <HeaderTabs activeTab={activeTab} setActiveTab={setActiveTab} />
+        {/* <HeaderTabs activeTab={activeTab} setActiveTab={setActiveTab} /> */}
         <Search setCity={setCity} />
       </View>
     
@@ -47,12 +57,13 @@ export default function Home() {
       
       <ScrollView  showsVerticaltalScrollIndicator={false} style={{ height: screenHeight - 225 }}>
         <Categories />
-        {restaurantData.length > 0 ? <RestaurantItems restaurantData={restaurantData} />   : <ActivityIndicator style={{ marginTop:"25%"}} size="large" color="#000" /> }
+        {restaurantData.length > 0 ? <RestaurantItems navigation={navigation} restaurantData={restaurantData} />   : <ActivityIndicator style={{ marginTop:"25%"}} size="large" color="#000" /> }
       </ScrollView>
 
-     
-      <Divider width={1} />
+     <View style={{backgroundColor:"#fff"}}>
+      <Divider width={1} color="#F7D716" />
       <BottomTabs />
+      </View>
 
     </SafeAreaView>
     

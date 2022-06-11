@@ -17,8 +17,8 @@ export default function BottomTabs() {
 const SetButtonIcon = ({text,icon}) => (
     <>
     <TouchableOpacity>
-        <FontAwesome5 name={icon} size={25} style={{marginBottom:3, alignSelf:"center"}} light />
-        <Text>{text}</Text>
+        <FontAwesome5 name={icon} size={25} style={{marginBottom:3, color:"#293462", alignSelf:"center"}} light />
+        <Text style={{color:"#293462"}}>{text}</Text>
     </TouchableOpacity>
     </>
 )

@@ -30,7 +30,8 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "yelpApiKey" : "",
-    "googlePlacesApiKey" : ""
+    "yelpApiKey" : "f9Bfpc4gHX2FQdhIfusxH7W702mHYjbeUCyFWjRHD-j2IJhJvE1hpoM_UPRoF54AyQQ0DqP9B7fk8SoR499DVvRR6gJGbA5rINVTp37EV1NxOmfXyEz_dkP1AFA3YnYx",
+    "googlePlacesApiKey" : "AIzaSyCL3HWRPshvsuNUcV4qEkqjzwbmoGSiBuE",
+    "firebaseAuthToken" : ""
   }
 }
