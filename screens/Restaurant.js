@@ -16,31 +16,31 @@ const menuItems = [
     {
         title: "Chicken Wings",
         description: "San Franc...(truncated to the first 10000 characters)",
-        price: "$ 13.44",
+        price: "$ 14.44",
         image: "https://s3-media4.fl.yelpcdn.com/bphoto/LTtoZ25m8FX1UV37asnTCw/o.jpg",
     },
     {
         title: "Chicken Wings",
         description: "San Franc...(truncated to the first 10000 characters)",
-        price: "$ 13.44",
+        price: "$ 20.44",
         image: "https://s3-media4.fl.yelpcdn.com/bphoto/LTtoZ25m8FX1UV37asnTCw/o.jpg",
     },
     {
         title: "Chicken Wings",
         description: "San Franc...(truncated to the first 10000 characters)",
-        price: "$ 13.44",
+        price: "$ 10.44",
         image: "https://s3-media4.fl.yelpcdn.com/bphoto/LTtoZ25m8FX1UV37asnTCw/o.jpg",
     },
     {
         title: "Chicken Wings",
         description: "San Franc...(truncated to the first 10000 characters)",
-        price: "$ 13.44",
+        price: "$ 12.44",
         image: "https://s3-media4.fl.yelpcdn.com/bphoto/LTtoZ25m8FX1UV37asnTCw/o.jpg",
     },
     {
         title: "Chicken Wings",
         description: "San Franc...(truncated to the first 10000 characters)",
-        price: "$ 13.44",
+        price: "$ 15.44",
         image: "https://s3-media4.fl.yelpcdn.com/bphoto/LTtoZ25m8FX1UV37asnTCw/o.jpg",
     },
 ]
@@ -50,7 +50,7 @@ export default function Restaurant({route, navigation}) {
         <View >
             <About route={route}  />
             <Divider width={1.8} style={{ marginBottom: 20 }} />
-            <MenuItems menuInfo={menuItems} />
+            <MenuItems menuInfo={menuItems} restaurantName={route.params.name} />
             <ViewCart navigation={navigation} restaurantName={route.params.name} />
         </View>
     )

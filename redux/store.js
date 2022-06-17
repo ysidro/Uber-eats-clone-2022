@@ -1,7 +1,7 @@
 import { legacy_createStore as createStore} from 'redux'
-import reducer from "./reducers/index"
+import rootReducer from "./reducers/index"
 
 export default function configureStore(initialState)
 {
-    return createStore(reducer,initialState)
+    return createStore(rootReducer,initialState)
 }

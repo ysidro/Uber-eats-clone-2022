@@ -3,6 +3,7 @@ let defaultState = {
 }
 
 let cartReducer = (state = defaultState, action ) => {
+ 
     switch (action.ype) {
         case 'ADD_TO_CART' :{
             let newState = {...state};
